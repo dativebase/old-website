@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>OLD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="icon" href="favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+
+
+    <div id="titlebar">
+      <h1>Online Linguistic Database</h1>
+    </div>
+
+    <div id="navbar">
+      <div class='mi' data-page='apps'><span class="navitem">Apps</span></div>
+      <div class='mi' data-page='faq'><span class="navitem">FAQ</span></div>
+      <div class='mi' data-page='doc'><i class="fa fa-file-o"></i><span class="navitem">Documentation</div>
+      <div class='mi' data-page='source'><i class="fa fa-github"></i><span class="navitem">Source</span></div>
+      <div class='mi' data-page='api'><i class="fa fa-gear"></i><span class="navitem">API</span></div>
+    </div>
+
+    <div id="logo">
+      <div id="logoinner">
+        <img src="images/OLD-logo.png" alt="OLD logo">
+      </div>
+    </div>
+
+    <div id="sidebar">
+    </div>
+
+    <div id="content">
+
+      <div id="pages">
+
+
+        <div class="page" id="about">
+
+          <h1>About the OLD</h1>
+
+          <p>The Online Linguistic Database (OLD) is software that seeks to
+          facilitate collaborative linguistic fieldwork, including language
+          documentation and linguistic analysis.</p>
+
+          <h2>Features</h2>
+
+          <ul>
+            <li>Collaboration and data sharing</li>
+            <li>Advanced search</li>
+            <li>Automatic morpheme cross-referencing</li>
+            <li>Configurable validation</li>
+            <li>Morphological parser builder</li>
+            <li>Phonology builder</li>
+            <li>Text creation</li>
+            <li>User access control</li>
+            <li>Documentation</li>
+            <li>Open source</li>
+            <li>Graphical User Interface: Dative</li>
+            <li>RESTful JSON API</li>
+          </ul>
+
+          <h2>Technical</h2>
+
+          <p>The OLD is software for creating RESTful web services that
+          facilitate collaborative linguistic fieldwork and language
+          documentation. An OLD RESTful web service receives inputs and returns
+          outputs in JSON. The OLD is written in Python using the Pylons web
+          framework and MySQL/SQLAlchemy. Its source code can be found on <a
+          href="https://github.com/jrwdunham/old" target="blank_">GitHub</a>
+          and releases can be accessed on <a
+          href="https://pypi.python.org/pypi/onlinelinguisticdatabase"
+          target="blank_">PyPI</a> and installed with either <span
+          class="snippet">pip</span> or <span
+          class="snippet">easy_install</span>.</p>
+
+        </div>
+
+
+        <div class="page" id="apps" style="display:none;">
+
+          <h1>Language-specific OLD Applications</h1>
+
+          <p>The following seven languages are being collaboratively documented
+            and analyzed using the <a
+            href="https://github.com/jrwdunham/old">OLD</a>. These applications
+            are accessible via any Dative user interface, including the one
+            being served at <a
+            href="https://www.dative.ca">www.dative.ca</a>.</p>
+
+          <ol>
+            <li><a href="https://kut.old.jrwdunham.com"
+                target="_blank">Kutenai (kut)</a></li>
+            <li><a href="https://projects.linguistics.ubc.ca/morold/"
+                target="_blank">Moro (mor)</a></li>
+            <li><a href="https://projects.linguistics.ubc.ca/cacold/"
+                target="_blank">Chuj (cac)</a></li>
+            <li><a href="https://projects.linguistics.ubc.ca/kabold/"
+                target="_blank">Kabyle (kab)</a></li>
+            <li><a href="https://projects.linguistics.ubc.ca/batumi_kartuliold/"
+                target="_blank">Kartuli (kat)</a></li>
+            <li><a href="https://projects.linguistics.ubc.ca/rkmold/"
+                target="_blank">Marka (rkm)</a></li>
+            <li><a href="https://projects.linguistics.ubc.ca/khmold/"
+                target="_blank">Khmer (khm)</a></li>
+          </ol>
+
+          <p>The following nine languages are being collaboratively documented
+            and analyzed using OLD web applications running on <a
+            href="https://github.com/jrwdunham/old-webapp">version 0.2</a> of
+          the software.<sup>*</sup></p>
+
+          <ol>
+            <li><a href="http://bla.old.linguistics.ubc.ca/"
+                target="_blank">Blackfoot (bla)</a></li>
+            <li><a href="http://oka.old.linguistics.ubc.ca/"
+                target="_blank">Okanagan (oka)</a></li>
+            <li><a href="http://crk.old.linguistics.ubc.ca/"
+                target="_blank">Plains Cree (crk)</a></li>
+            <li><a href="http://kwk.old.linguistics.ubc.ca/"
+                target="_blank">Kwak'wala (kwk)</a></li>
+            <li><a href="http://ntk.old.linguistics.ubc.ca/"
+                target="_blank">Nata (ntk)</a></li>
+            <li><a href="http://git.old.linguistics.ubc.ca/"
+                target="_blank">Gitksan (git)</a></li>
+            <li><a href="http://crd.old.linguistics.ubc.ca/"
+                target="_blank">Coeur d'Alene (crd)</a></li>
+            <li><a href="http://sna.old.linguistics.ubc.ca/"
+                target="_blank">Shona (sna)</a></li>
+            <li><a href="http://byv.old.linguistics.ubc.ca/"
+                target="_blank">Medumba</a></li>
+          </ol>
+
+          <p><sup>*</sup>The OLD version 0.2 is a different piece of software
+          from the OLD (version 1). The above nine applications will be
+          migrated to a Dative/OLD system using OLD v. 1 in the near future.</p>
+
+        </div>
+
+
+        <div class="page" id="faq" style="display:none;">
+
+          <h1>Frequently Asked Questions</h1>
+
+          <a class="faq-show-all" href="javascript:void(0)">show all</a>
+          <a class="faq-hide-all" href="javascript:void(0)">hide all</a>
+
+          <ul class="faq">
+
+            <li>
+              <div class="faq-q">How can I use the OLD to document my
+                language?</div>
+              <div class="faq-a">
+                <p>If a group is already using the OLD to document your
+                language, you can ask an administrator of that OLD for access.
+                Otherwise, you can install and serve your own OLD on a web
+                server.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="faq-q">Do I need to know how to build a web site in
+                order to use the OLD?</div>
+              <div class="faq-a">
+                <p>We are working on a single-click installer for the OLD (and
+                for Dative/OLD systems). Check back soon.</p>
+
+                <p>At present, in order to download, install, and serve an
+                OLD you will need a basic understanding of the Linux/Unix
+                command line. The <a
+                href="https://github.com/jrwdunham/buildold/">Build OLD</a>
+                project contains install and build/serve scripts that may help
+                you. Currently these scripts only work on Ubuntu servers.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="faq-q">Is there a demo?</div>
+              <div class="faq-a">
+                <p>Not yet. We will be releasing a demo Dative/OLD soon so you
+                can play around with it.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="faq-q">What is Dative and how is it different from
+                the OLD?</div>
+              <div class="faq-a">
+                <p><a href="http://www.dative.ca">Dative</a> is a graphical
+                user interface (GUI) that works with the OLD. Dative makes it
+                easy for people (who aren't programmers) to work with the
+                OLD.</p>
+
+                <p>The OLD is software for building web services. An OLD web
+                service is designed so that programs (and programmers) can talk
+                to it. If you are a non-technical user, then you will probably
+                want to use the OLD with a Dative interface.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="faq-q">Can I use the OLD offline, i.e., in the
+                field?</div>
+              <div class="faq-a">Not yet. Offline functionality is a planned
+                feature. Check back soon.</div>
+            </li>
+
+            <li>
+              <div class="faq-q">Does it have documentation?</div>
+              <div class="faq-a">Yes. See the <a
+                href="http://online-linguistic-database.readthedocs.org"
+                target="blank_">OLD Documentation</a>. See also <a
+                href="https://open.library.ubc.ca/cIRcle/collections/24/items/1.0165582"
+                target="blank_">Dunham (2014)</a>.</div>
+            </li>
+
+            <li>
+              <div class="faq-q">Does it have a graphical interface?</div>
+              <div class="faq-a">
+                <p>Yes, see <a href="http://www.dative.ca">Dative</a>.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="faq-q">How can I migrate my data to the OLD?</div>
+              <div class="faq-a">
+                <p>You can use the OLD's <a href="javascript:void(0)"
+                  class="mi" data-page="api">RESTful JSON API</a> to
+                programmatically upload your existing data structures to the
+                OLD.</p>
+
+                <p>If your data are stored on a LingSync corpus, the
+                <a href="https://github.com/jrwdunham/lingsync2old"
+                  target="blank_">LingSync-to-OLD</a> migrator program may work
+                for you.</p>
+
+              </div>
+
+            </li>
+
+            <li>
+              <div class="faq-q">Is it open source? How do I get the code?</div>
+              <div class="faq-a">
+                <p>Yes, the OLD is open source and is licenced under <a
+                  href="http://www.apache.org/licenses/LICENSE-2.0"
+                  target="blank_">Apache License 2.0</a>. Its source code is
+                  available on <a href="https://github.com/jrwdunham/old"
+                  target="blank_">GitHub</a>.</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="faq-q">How do I install it?</div>
+              <div class="faq-a">
+                <p>For detailed instructions on installing the OLD as well as
+                  its soft dependencies, see the <a
+                  href="http://online-linguistic-database.readthedocs.org/en/latest/installation.html#installation-configuration"
+                  target="blank_">Documentation</a> or the <a
+                  href="https://github.com/jrwdunham/buildold/blob/master/installold.py"
+                  target="blank_">Ubuntu install script</a>.</p>
+
+                <p>For the impatient, either <span class="snippet">pip install
+                  onlinelinguisticdatabase</span> or <span
+                  class="snippet">easy_install onlinelinguisticdatabase</span>
+                  should work.</p>
+              </div>
+
+            </li>
+
+            <!-- <li>
+              <div class="faq-q">When I browse to an OLD URL, I see <span
+                class="snippet">{"error": "The resource could not be
+                found."}</span>. What does this mean?</div>
+              <div class="faq-a">TODO.</div>
+            </li>
+            -->
+
+          </ul>
+
+        </div>
+
+
+        <div class="page" id="doc" style="display:none;">
+
+          <h1>Documentation</h1>
+
+          <ul>
+            <li><a href="http://online-linguistic-database.readthedocs.org/"
+              target="blank_">The Official OLD documentation</a></li>
+            <li><a href="https://open.library.ubc.ca/cIRcle/collections/24/items/1.0165582"
+              target="blank_">Dunham (2014)</a> is a PhD dissertation that
+              describes and argues for the OLD. It was written by the OLD's
+              <a href="http://www.jrwdunham.com" target="blank_">primary
+              developer</a>.
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div class="page" id="api" style="display:none;">
+
+          <p>The OLD exposes a RESTful API with data communicated in JSON
+          format. A simple overview will be provided here soon. For now, see
+          the <a href="http://online-linguistic-database.readthedocs.org/en/latest/interface.html#restful-api"
+          >documentation</a>.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
