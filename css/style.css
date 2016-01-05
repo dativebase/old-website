@@ -155,5 +155,12 @@ div.faq-a p
   margin-right: 1em;
 }
 
-
+div.codehilite
+{
+  padding: 0.25em 1em;
+  background-color: #333;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
 

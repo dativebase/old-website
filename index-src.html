@@ -92,39 +92,15 @@
 
           <h2>Log in</h2>
 
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://kut.old.jrwdunham.com/&#39;</span>
-<span class="n">s</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">})</span>
-<span class="n">login_response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">login/authenticate&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">,</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
-        <span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;myusername&#39;</span><span class="p">,</span>
-        <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;mypassword&#39;</span><span class="p">}))</span>
-<span class="k">assert</span> <span class="n">login_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;authenticated&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span>
-</pre></div>
+          <!-- code-block: logging-in -->
 
           <h2>Fetch your data (i.e., forms)</h2>
 
-<div class="codehilite"><pre><span class="n">forms</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">forms&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">forms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
-    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> &quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;transcription&#39;</span><span class="p">],</span>
-        <span class="n">form</span><span class="p">[</span><span class="s">&#39;translations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;transcription&#39;</span><span class="p">])</span>
-<span class="c"># Qaⱡa kin in? &quot;Who are you?&quot;</span>
-<span class="c"># Hun upxni qaⱡa hin in. &quot;I know who you are.&quot;</span>
-<span class="c"># Qaⱡa ku in? &quot;Who am I?&quot;</span>
-</pre></div>
+          <!-- code-block: getting-forms -->
 
           <h2>Fetch with pagination</h2>
 
-<div class="codehilite"><pre><span class="n">paginator</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;items_per_page&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="n">forms</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">forms&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">paginator</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">forms</span><span class="p">[</span><span class="s">&#39;paginator&#39;</span><span class="p">][</span><span class="s">&#39;count&#39;</span><span class="p">]</span>
-<span class="c"># 800</span>
-<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">forms</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">])</span>
-<span class="c"># 10</span>
-<span class="k">print</span> <span class="n">forms</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;transcription&#39;</span><span class="p">]</span>
-<span class="c"># maⱡtin haqapsi kanuhus nanas</span>
-</pre></div>
+          <!-- code-block: pagination -->
 
         </div>
 

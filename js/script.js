@@ -28,6 +28,7 @@ $(function(){
     $('#titlebar, #logo').click(function() {
         hidePages();
         $('#about').show();
+        history.pushState('', '', '/');
     });
 
     $('.faq-q').click(function(e) {
@@ -56,7 +57,7 @@ $(function(){
     // we display that "page". Note that this requires the server to route
     // requests to /apps, /doc, etc. to /.
     var path = window.location.pathname;
-    pages = ['/apps', '/faq', '/doc', '/api'];
+    pages = ['/getstarted', '/apps', '/faq', '/doc', '/api'];
     if (pages.indexOf(path) !== -1) {
         showPage(path.replace('/', ''));
     }
