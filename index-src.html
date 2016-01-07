@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="icon" href="favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src="js/jquery-1.8.0.min.js"></script> -->
     <script src="js/script.js"></script>
   </head>
   <body>
@@ -92,15 +93,52 @@
 
           <h2>Log in</h2>
 
+          <p>To log in to an OLD and create a session that remembers that
+          you've logged in, do the following.</p>
+
           <!-- code-block: logging-in -->
 
           <h2>Fetch your data (i.e., forms)</h2>
+
+          <p>The following will fetch all of the forms in your OLD as a list of
+          dicts.</p>
 
           <!-- code-block: getting-forms -->
 
           <h2>Fetch with pagination</h2>
 
+          <p>To fetch a subset of your forms, supply a paginator dict with
+          <span class="snippet">items_per_page</span> and <span
+          class="snippet">page</span> keys. The return value will be a dict
+          with a <span class="snippet">paginator</span> key that adds a <span
+          class="snippet">count</span> value to your supplied paginator,
+          telling you how many forms are in your database. The <span
+          class="snippet">items</span> key valuates to a list of the N form
+          objects that you requested.</p>
+
           <!-- code-block: pagination -->
+
+          <h2>Fetch collections</h2>
+
+          <p>Request all of your collections as a list of dicts.</p>
+
+          <!-- code-block: getting-collections -->
+
+          <p>Note that usage of the <span class="snippet">paginator</span>
+          parameter, as described above, works for requests on <i>any</i> OLD
+          resource type, including forms, collections, corpora, etc.</p>
+
+
+          <h2>Fetch a collection and its forms</h2>
+
+          <p>In order to request a collection as well as all of the forms that
+          it contains, do the following. Note that the order of forms in a
+          collection is defined by the order of references in the collection's
+          <span class="snippet">contents</span> field. This is why we must use
+          a regular expression to identify the form references in the following
+          code example.</p>
+
+          <!-- code-block: get-collection-with-forms -->
 
         </div>
 

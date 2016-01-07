@@ -6,6 +6,11 @@ $(function(){
         $('.page').hide();
     };
 
+    var sidebarHeight = function() {
+        $('#sidebar').height($('#content').height() + 200);
+    }
+    sidebarHeight();
+
     $('.mi').click(function (e) {
         var page = $(e.currentTarget).data('page');
         if (page === 'source') {
@@ -23,6 +28,7 @@ $(function(){
         } else {
             $('#about').show();
         }
+        sidebarHeight();
     }
 
     $('#titlebar, #logo').click(function() {

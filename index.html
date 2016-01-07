@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="icon" href="favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src="js/jquery-1.8.0.min.js"></script> -->
     <script src="js/script.js"></script>
   </head>
   <body>
@@ -92,6 +93,9 @@
 
           <h2>Log in</h2>
 
+          <p>To log in to an OLD and create a session that remembers that
+          you've logged in, do the following.</p>
+
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://kut.old.jrwdunham.com/&#39;</span>
@@ -105,6 +109,9 @@
 
           <h2>Fetch your data (i.e., forms)</h2>
 
+          <p>The following will fetch all of the forms in your OLD as a list of
+          dicts.</p>
+
 <div class="codehilite"><pre><span class="n">forms</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">forms&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">forms</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
     <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> &quot;</span><span class="si">%s</span><span class="s">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;transcription&#39;</span><span class="p">],</span>
@@ -116,6 +123,15 @@
 
           <h2>Fetch with pagination</h2>
 
+          <p>To fetch a subset of your forms, supply a paginator dict with
+          <span class="snippet">items_per_page</span> and <span
+          class="snippet">page</span> keys. The return value will be a dict
+          with a <span class="snippet">paginator</span> key that adds a <span
+          class="snippet">count</span> value to your supplied paginator,
+          telling you how many forms are in your database. The <span
+          class="snippet">items</span> key valuates to a list of the N form
+          objects that you requested.</p>
+
 <div class="codehilite"><pre><span class="n">paginator</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;items_per_page&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 <span class="n">forms</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">forms&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">paginator</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="k">print</span> <span class="n">forms</span><span class="p">[</span><span class="s">&#39;paginator&#39;</span><span class="p">][</span><span class="s">&#39;count&#39;</span><span class="p">]</span>
@@ -124,6 +140,54 @@
 <span class="c"># 10</span>
 <span class="k">print</span> <span class="n">forms</span><span class="p">[</span><span class="s">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;transcription&#39;</span><span class="p">]</span>
 <span class="c"># maⱡtin haqapsi kanuhus nanas</span>
+</pre></div>
+
+          <h2>Fetch collections</h2>
+
+          <p>Request all of your collections as a list of dicts.</p>
+
+<div class="codehilite"><pre><span class="n">collections</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">collections&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">collection</span> <span class="ow">in</span> <span class="n">collections</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">. </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">collection</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">],</span>
+        <span class="n">collection</span><span class="p">[</span><span class="s">&#39;description&#39;</span><span class="p">])</span>
+<span class="c"># Martina&#39;s Fall. Group 4</span>
+<span class="c"># Is This A...?. </span>
+<span class="c"># Cup Game. Group 1</span>
+</pre></div>
+
+          <p>Note that usage of the <span class="snippet">paginator</span>
+          parameter, as described above, works for requests on <i>any</i> OLD
+          resource type, including forms, collections, corpora, etc.</p>
+
+
+          <h2>Fetch a collection and its forms</h2>
+
+          <p>In order to request a collection as well as all of the forms that
+          it contains, do the following. Note that the order of forms in a
+          collection is defined by the order of references in the collection's
+          <span class="snippet">contents</span> field. This is why we must use
+          a regular expression to identify the form references in the following
+          code example.</p>
+
+<div class="codehilite"><pre><span class="n">collection</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">collections/34&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">coll_forms</span> <span class="o">=</span> <span class="n">collection</span><span class="p">[</span><span class="s">&#39;forms&#39;</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&#39;Collection </span><span class="si">%s</span><span class="s"> contains </span><span class="si">%d</span><span class="s"> forms.</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+    <span class="n">collection</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">coll_forms</span><span class="p">))</span>
+<span class="c"># Collection Going for a visit ... contains 9 forms.</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="k">for</span> <span class="n">form_id</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">&#39;form\[(\d+)\]&#39;</span><span class="p">,</span>
+    <span class="n">collection</span><span class="p">[</span><span class="s">&#39;contents&#39;</span><span class="p">])):</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">coll_forms</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">form_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">print</span> <span class="s">u&#39;</span><span class="si">%s</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;transcription&#39;</span><span class="p">],</span>
+        <span class="n">form</span><span class="p">[</span><span class="s">&#39;translations&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;transcription&#39;</span><span class="p">])</span>
+<span class="c"># ȼan qakiʔni: xman qawakaxi ka akitⱡa kuȼxaⱡ upxnamnaⱡa</span>
+<span class="c"># John says: Come to me for a visit! (Come over to my ...</span>
+<span class="c">#</span>
+<span class="c"># James qakiʔni: Waha! Huȼxaⱡ qataⱡ ȼ̓inaⱡ upxnisni at ...</span>
+<span class="c"># James says: No! I can&#39;t go to you for a visit. I ...</span>
+<span class="c">#</span>
+<span class="c"># ...</span>
 </pre></div>
 
         </div>

@@ -1,5 +1,6 @@
 .codehilite .hll { background-color: #222222 }
-.codehilite .c { color: #000080 } /* Comment */
+/*.codehilite .c { color: #000080 } /* Comment */
+.codehilite .c { color: yellow } /* Comment */
 .codehilite .err { color: #cccccc; border: 1px solid #FF0000 } /* Error */
 .codehilite .g { color: #cccccc } /* Generic */
 .codehilite .k { color: #cdcd00 } /* Keyword */
