@@ -21,11 +21,11 @@ import requests, json
 s = requests.Session()
 url = 'https://kut.old.jrwdunham.com/'
 s.headers.update({'Content-Type': 'application/json'})
-login_response = s.post('%slogin/authenticate' % url,
+resp = s.post('%slogin/authenticate' % url,
     data=json.dumps({
         'username': 'myusername',
         'password': 'mypassword'}))
-assert login_response.json().get('authenticated') == True
+assert resp.json().get('authenticated') == True
 # end-block: logging-in
 
 # start-block: getting-forms

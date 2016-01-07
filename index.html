@@ -13,18 +13,36 @@
   </head>
   <body>
 
-
     <div id="titlebar">
       <h1>Online Linguistic Database</h1>
     </div>
 
     <div id="navbar">
-      <div class='mi' data-page='getstarted'><span class="navitem">Get started</span></div>
-      <div class='mi' data-page='apps'><span class="navitem">Apps</span></div>
-      <div class='mi' data-page='faq'><span class="navitem">FAQ</span></div>
-      <div class='mi' data-page='doc'><i class="fa fa-file-o"></i><span class="navitem">Documentation</div>
-      <div class='mi' data-page='source'><i class="fa fa-github"></i><span class="navitem">Source</span></div>
-      <div class='mi' data-page='api'><i class="fa fa-gear"></i><span class="navitem">API</span></div>
+
+      <div class='mi' data-page='getstarted'>
+        <span class="navitem">Getting Started</span>
+      </div>
+
+      <!--
+      <div class='mi' data-page='apps'>
+        <span class="navitem">Apps</span>
+      </div>
+      -->
+
+      <div class='mi' data-page='faq'>
+        <span class="navitem">FAQ</span>
+      </div>
+
+      <div class='mi' data-page='getstarted'>
+        <i class="fa fa-file-o"></i>
+        <span class="navitem">Documentation</span>
+      </div>
+
+      <div class='mi' data-page='api'>
+        <i class="fa fa-gear"></i>
+        <span class="navitem">API</span>
+      </div>
+
     </div>
 
     <div id="logo">
@@ -33,10 +51,53 @@
       </div>
     </div>
 
-    <div id="sidebar">
-    </div>
 
     <div id="content">
+
+      <div id="rowwrapper">
+
+      <div id="innersidebar">
+
+        <div class="innersidebarspacer"></div>
+
+        <div class="major">
+          <i class="fa fa-file-o"></i>
+          Documentation
+        </div>
+
+        <div class="sideitem" data-page='getstarted'>
+          Getting Started
+        </div>
+
+        <div class="sideitem" data-page='addingupdating'>
+          Adding &amp; Updating
+        </div>
+
+        <div class="sideitem" data-page='searching'>
+          Searching
+        </div>
+
+        <div class="sideitem" data-page='api'>
+          REST API
+        </div>
+
+        <div class="major">
+          More
+        </div>
+
+        <div class="sideitem" data-page='faq'>
+          Frequently Asked Questions
+        </div>
+
+        <div class="sideitem" data-page='apps'>
+          Languages
+        </div>
+
+        <div class="sideitem" data-page='install'>
+          Installing the OLD
+        </div>
+
+      </div>
 
       <div id="pages">
 
@@ -44,9 +105,8 @@
 
           <h1>About the OLD</h1>
 
-          <p>The Online Linguistic Database (OLD) is software that seeks to
-          facilitate collaborative linguistic fieldwork, including language
-          documentation and linguistic analysis.</p>
+          <p>The Online Linguistic Database (OLD) is software for linguistic
+          fieldwork.</p>
 
           <h2>Features</h2>
 
@@ -55,13 +115,13 @@
             <li>Advanced search</li>
             <li>Automatic morpheme cross-referencing</li>
             <li>Configurable validation</li>
-            <li>Morphological parser builder</li>
-            <li>Phonology builder</li>
+            <li>Morphological parser &amp; phonology builder</li>
             <li>Text creation</li>
             <li>User access control</li>
             <li>Documentation</li>
             <li>Open source</li>
-            <li>Graphical User Interface: Dative</li>
+            <li>Graphical User Interface: <a href="http://www.dative.ca"
+                target="blank_">Dative</a></li>
             <li>RESTful JSON API</li>
           </ul>
 
@@ -100,11 +160,11 @@
 <span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://kut.old.jrwdunham.com/&#39;</span>
 <span class="n">s</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">})</span>
-<span class="n">login_response</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">login/authenticate&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">,</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">login/authenticate&#39;</span> <span class="o">%</span> <span class="n">url</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
         <span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;myusername&#39;</span><span class="p">,</span>
         <span class="s">&#39;password&#39;</span><span class="p">:</span> <span class="s">&#39;mypassword&#39;</span><span class="p">}))</span>
-<span class="k">assert</span> <span class="n">login_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;authenticated&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span>
+<span class="k">assert</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;authenticated&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">True</span>
 </pre></div>
 
           <h2>Fetch your data (i.e., forms)</h2>
@@ -250,6 +310,93 @@
           <p><sup>*</sup>The OLD version 0.2 is a different piece of software
           from the OLD (version 1). The above nine applications will be
           migrated to a Dative/OLD system using OLD v. 1 in the near future.</p>
+
+        </div>
+
+
+        <div class="page" id="install" style="display:none;">
+
+          <h1>Installing the OLD</h1>
+
+          <p>You can download and install the OLD on your own computer or on a
+          server and use it to build and serve as many OLD instances as you
+          want.</p>
+
+          <p>To avoid dependency conflicts, the OLD should be installed in a
+          Python virtual environment using <a
+          href="https://virtualenv.readthedocs.org/en/latest/installation.html"
+          ><span class="snippet">virtualenv</span></a>. To install <a
+          href="https://virtualenv.readthedocs.org/en/latest/installation.html"
+          ><span class="snippet">virtualenv</span></a> and create a virtual
+          environment, run:</p>
+
+<div class="shcodehilite"><pre>pip install virtualenv
+virtualenv env
+<span class="nb">source </span>env
+</pre></div>
+
+          <p>Install with pip:</p>
+
+<div class="shcodehilite"><pre>pip install onlinelinguisticdatabase
+</pre></div>
+
+          <p>Or install with easy_install:</p>
+
+<div class="shcodehilite"><pre>easy_install onlinelinguisticdatabase
+</pre></div>
+
+          <p>Or install from source:</p>
+
+<div class="shcodehilite"><pre>git clone https://github.com/jrwdunham/old.git
+<span class="nb">cd </span>old
+python setup.py develop
+</pre></div>
+
+
+          <h2>Build an OLD Instance</h2>
+
+          <p>Once you have the OLD installed, you can create as many OLD
+          instances as you want.</p>
+
+<div class="shcodehilite"><pre>mkdir myold
+<span class="nb">cd </span>myold
+paster make-config onlinelinguisticdatabase production.ini
+paster setup-app production.ini
+</pre></div>
+
+
+          <h2>Serve your OLD</h2>
+
+<div class="shcodehilite"><pre>paster serve production.ini
+</pre></div>
+
+
+          <h2>Use MySQL</h2>
+
+          <p>By default, the OLD uses SQLite as its relational database
+          (RDBMS). For testing and personal use, this is fine; however, for
+          production environments when serving an OLD to multiple users, MySQL
+          should be used.</p>
+
+          <p>Assuming you have both MySQL and Python's MySQLdb installed (<span
+          class="snippet">pip install MySQL-python</span>), create the
+          MySQL database and user as follows.</p>
+
+<div class="codehilite"><pre><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">myold</span> <span class="k">DEFAULT</span> <span class="k">CHARACTER</span> <span class="kt">SET</span> <span class="n">utf8</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="n">USER</span> <span class="s1">&#39;myuser&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">BY</span> <span class="s1">&#39;mypassword&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span> <span class="k">SELECT</span><span class="p">,</span> <span class="k">INSERT</span><span class="p">,</span> <span class="k">UPDATE</span><span class="p">,</span> <span class="k">DELETE</span><span class="p">,</span> <span class="k">CREATE</span><span class="p">,</span> <span class="k">DROP</span> <span class="k">ON</span> <span class="n">myold</span><span class="p">.</span><span class="o">*</span> <span class="k">TO</span> <span class="s1">&#39;myuser&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+</pre></div>
+
+          <p>Then edit the config file that you created earlier by running
+          <span class="snippet">paster make-config</span> (e.g., <span
+          class="snippet">production.ini</span>) and comment out the SQLite
+          line and uncomment the MySQL lines and insert the correct database
+          name, username and password:</p>
+
+<div class="codehilite"><pre><span class="c1"># sqlalchemy.url = sqlite:///production.db</span>
+<span class="na">sqlalchemy.url</span> <span class="o">=</span> <span class="s">mysql://myuser:mypassword@localhost:3306/myold?charset=utf8</span>
+<span class="na">sqlalchemy.pool_recycle</span> <span class="o">=</span> <span class="s">3600</span>
+</pre></div>
 
         </div>
 
@@ -425,6 +572,24 @@
 
       </div>
 
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div>
+        <a href="https://github.com/jrwdunham/old" target="_blank">
+          <i class="fa fa-github"></i>
+          <span class="navitem">Source</span>
+        </a>
+      </div>
+      <div>
+        <a href="http://online-linguistic-database.readthedocs.org"
+          target="_blank">
+          <i class="fa fa-book"></i>
+          <span class="navitem">ReadTheDocs</span>
+        </a>
+      </div>
     </div>
 
   </body>

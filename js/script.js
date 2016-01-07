@@ -11,8 +11,20 @@ $(function(){
     }
     sidebarHeight();
 
-    $('.mi').click(function (e) {
+    var desideitems = function() {
+        $('.sideitem').removeClass('on');
+    }
+
+    var sideitem = function(page) {
+        selector = "[data-page='" + page + "']";
+        console.log(selector);
+        $('.sideitem').filter(selector).addClass('on');
+    }
+
+    $('.mi,.sideitem').click(function (e) {
         var page = $(e.currentTarget).data('page');
+        desideitems();
+        sideitem(page);
         if (page === 'source') {
             window.open("https://github.com/jrwdunham/old", '_blank');
         } else {
@@ -32,6 +44,7 @@ $(function(){
     }
 
     $('#titlebar, #logo').click(function() {
+        desideitems();
         hidePages();
         $('#about').show();
         history.pushState('', '', '/');
@@ -63,7 +76,9 @@ $(function(){
     // we display that "page". Note that this requires the server to route
     // requests to /apps, /doc, etc. to /.
     var path = window.location.pathname;
-    pages = ['/getstarted', '/apps', '/faq', '/doc', '/api'];
+    // pages = ['/getstarted', '/apps', '/faq', '/doc', '/api'];
+    pages = ['/getstarted', '/faq', '/api', '/addingupdating', '/searching',
+        '/apps', '/install']
     if (pages.indexOf(path) !== -1) {
         showPage(path.replace('/', ''));
     }

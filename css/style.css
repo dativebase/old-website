@@ -11,10 +11,70 @@ html
 
 body
 {
-  height: 2000px;
   margin: 0;
   padding: 0;
   position: relative;
+  min-width: 975px;
+  background-color: #d4d4d4;
+}
+
+#content
+{
+  min-height: 1000px;
+  height: 100%;
+  width: 1000px;
+  display: table;
+  /*margin-left: 200px;*/
+  margin: 0 auto;
+  background-color: white;
+  border-right: 1px solid grey;
+}
+
+#rowwrapper
+{
+  display: table-row;
+}
+
+#innersidebar
+{
+  display: table-cell;
+  background-color: #d4d4d4;
+  width: 275px;
+  border-right: 1px solid grey;
+  padding-top: 3em;
+}
+
+#innersidebar div
+{
+  /*border: 1px solid grey;*/
+  padding: 0.5em 2em;
+  position: relative;
+  left: 1px;
+}
+
+div.sideitem
+{
+  cursor: pointer;
+}
+
+div.sideitem:not(.on):hover
+{
+  background-color: darkgrey;
+}
+
+div.major
+{
+  background-color: black;
+  color: white;
+  margin-top: 1em;
+}
+
+#pages
+{
+  display: table-cell;
+  width: 700px;
+  max-width: 700px;
+  padding: 3em;
 }
 
 #titlebar
@@ -23,13 +83,25 @@ body
   height: 3em;
 }
 
+#footer
+{
+  height: 3em;
+  background-color: black;
+}
+
+#navbar
+{
+  padding: 0 0.5em;
+}
+
 #titlebar:hover
 {
   cursor: pointer;
 }
 
 #titlebar,
-#navbar
+#navbar,
+#footer
 {
   background-color: black;
   text-align: center;
@@ -46,7 +118,21 @@ span.navitem
   padding: 0.5em;
 }
 
-#navbar div
+.sideitem.on
+{
+  background-color: white;
+  border: 1px solid grey;
+  border-right: none;
+}
+
+#footer div a
+{
+  color: white;
+  text-decoration: none;
+}
+
+#navbar div,
+#footer div
 {
   display: inline-block;
   color: white;
@@ -78,8 +164,10 @@ span.navitem
   position: absolute;
   top: 0;
   left: 0;
-  max-width: 17%;
-  min-width: 17%;
+  /*max-width: 17%;
+  min-width: 17%;*/
+  max-width: 200px;
+  min-width: 200px;
   z-index: 100;
 }
 
@@ -101,21 +189,14 @@ span.navitem
 #sidebar
 {
   border-right: 1px solid grey;
-  max-width: 21%;
-  min-width: 21%;
+  max-width: 200px;
+  min-width: 200px;
   background-color: #d4d4d4;
   min-height: 100%;
   height: 100%;
   z-index: 1;
   display: inline-block;
   float: left;
-}
-
-#content
-{
-  padding: 2em 7em;
-  width: 40%;
-  display: inline-block;
 }
 
 span.snippet
@@ -155,12 +236,22 @@ div.faq-a p
   margin-right: 1em;
 }
 
-div.codehilite
+div.shcodehilite,
+div.sqlcodehilite
+{
+  color: white;
+}
+
+div.codehilite,
+div.shcodehilite,
+div.sqlcodehilite
 {
   padding: 0.25em 1em;
   background-color: #333;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  overflow-x: scroll;
+  max-width: 90%;
 }
 
