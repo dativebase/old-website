@@ -255,3 +255,25 @@ div.sqlcodehilite
   max-width: 90%;
 }
 
+table.api-table
+{
+  border-collapse: collapse;
+}
+
+table.api-table th
+{
+  white-space: nowrap;
+}
+
+table.api-table th, td
+{
+  text-align: left;
+  vertical-align: top;
+  padding: 0 0.25em;
+}
+
+table.api-table tbody tr:nth-child(odd)
+{
+  background-color: lightgray;
+}
+

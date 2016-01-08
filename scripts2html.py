@@ -19,12 +19,14 @@ from pygments.lexers import PythonLexer
 from pygments.lexers.shell import BashLexer
 from pygments.lexers.sql import MySqlLexer
 from pygments.lexers.configs import IniLexer
+from pygments.lexers.data import JsonLexer
 from pygments.formatters import HtmlFormatter
 
 pyformatter = HtmlFormatter(cssclass="codehilite")
 shformatter = HtmlFormatter(cssclass="shcodehilite")
 sqlformatter = HtmlFormatter(cssclass="codehilite")
 iniformatter = HtmlFormatter(cssclass="codehilite")
+jsonformatter = HtmlFormatter(cssclass="codehilite")
 
 def get_blocks_from_source(srcpth):
     """Get code blocks from the file at `srcpth`.
@@ -59,6 +61,8 @@ def get_blocks():
         blocks[name] = {'block': block, 'lang': 'sql'}
     for name, block in get_blocks_from_source('example.ini').items():
         blocks[name] = {'block': block, 'lang': 'ini'}
+    for name, block in get_blocks_from_source('example.json').items():
+        blocks[name] = {'block': block, 'lang': 'json'}
     return blocks
 
 # Re-write index.html so that the code block comments are replaced by the
@@ -82,9 +86,12 @@ with codecs.open('index-src.html', 'r', 'utf-8') as fi:
                     elif lang == 'sql':
                         lexer = MySqlLexer()
                         formatter = sqlformatter
-                    else:
+                    elif lang == 'ini':
                         lexer = IniLexer()
                         formatter = iniformatter
+                    else:
+                        lexer = JsonLexer()
+                        formatter = jsonformatter
                     fo.write(highlight(block, lexer, formatter))
             else:
                 fo.write(line)

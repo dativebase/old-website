@@ -20,6 +20,7 @@
     <div id="navbar">
 
       <div class='mi' data-page='getstarted'>
+        <i class="fa fa-arrow-circle-right"></i>
         <span class="navitem">Getting Started</span>
       </div>
 
@@ -79,6 +80,10 @@
 
         <div class="sideitem" data-page='api'>
           REST API
+        </div>
+
+        <div class="sideitem" data-page='resources'>
+          Resources
         </div>
 
         <div class="major">
@@ -142,14 +147,38 @@
         </div>
 
 
+
+        <div class="page" id="addingupdating" style="display:none;">
+
+          <h1>Adding &amp; Updating Resources</h1>
+
+          <p>This page will contain examples showing how to create and update
+          OLD resources.</p>
+
+        </div>
+
+
+        <div class="page" id="searching" style="display:none;">
+
+          <h1>Searching Over Resources</h1>
+
+          <p>This page will contain examples showing how to search over
+          searchable OLD resources.</p>
+
+        </div>
+
+
+
         <div class="page" id="getstarted" style="display:none;">
 
           <h1>Getting started</h1>
 
-          <p>Here are some examples that show how you can interact with an OLD
-          using the Python Requests library. To follow these examples, you will
-          need to have i) Requests installed (<span class="snippet">pip install
-          'requests[security]'</span>) and ii) access to an OLD.</p>
+          <p>Once you have access to an OLD instance (cf. <a
+          href="javascript:void(0)" class="mi" data-page='install'
+          >installation</a>), you can interact with it
+          using standard RESTful patterns and your programming language of
+          choice. Here are some examples that show how you can interact with an
+          OLD using the Python Requests library.</p>
 
           <h2>Log in</h2>
 
@@ -212,7 +241,7 @@
             href="https://github.com/jrwdunham/old">OLD</a>. These applications
             are accessible via any Dative user interface, including the one
             being served at <a
-            href="https://www.dative.ca">www.dative.ca</a>.</p>
+            href="http://www.dative.ca">www.dative.ca</a>.</p>
 
           <ol>
             <li><a href="https://kut.old.jrwdunham.com"
@@ -282,15 +311,15 @@
 
           <!-- code-block: virtualenv -->
 
-          <p>Install with pip:</p>
+          <p>Then, install the OLD with pip:</p>
 
           <!-- code-block: install-pip -->
 
-          <p>Or install with easy_install:</p>
+          <p>Or, install it with easy_install:</p>
 
           <!-- code-block: install-easy_install -->
 
-          <p>Or install from source:</p>
+          <p>Or, install from source:</p>
 
           <!-- code-block: install-source -->
 
@@ -328,6 +357,42 @@
           name, username and password:</p>
 
           <!-- code-block: edit-config-mysql -->
+
+
+          <h2>Soft Dependencies</h2>
+
+          <p>The OLD will work fine if you've followed the installation
+          instructions above. However, in order to use all of the OLD's
+          functionality, the following command-line programs, Python modules
+          and system libraries should be also be installed. Exactly how to do
+          this depends on your operating system. There is an <a
+          href="https://github.com/jrwdunham/buildold/blob/master/installold.py"
+          target="blank_">OLD install script</a> (that currently only works on
+          Ubuntu 10.04), which may offer some help in installing these soft
+          dependencies.</p>
+
+          <ul>
+            <li><a href="http://www.pythonware.com/products/pil/"
+              target="blank_">Python Imaging Library (PIL)</a></li>
+            <li><a href="https://www.ffmpeg.org/"
+              target="blank_">FFmpeg</a></li>
+            <li><a href="https://code.google.com/p/foma/"
+              target="blank_">foma</a></li>
+            <li><a href="https://code.google.com/p/mitlm/"
+              target="blank_">MITLM</a></li>
+            <li><a href="https://github.com/threatstack/libmagic"
+              target="blank_">libmagic</a></li>
+          </ul>
+
+
+          <h2>Detailed Installation Instructions</h2>
+
+          <p>For more detailed instructions for installing the OLD and building
+          and serving OLD instances, please see either the <a
+          href="https://github.com/jrwdunham/buildold" target="blank_">Build
+          OLD</a> project or the <a
+          href="http://online-linguistic-database.readthedocs.org"
+          target="blank_">Official OLD Documentation</a>.</p>
 
         </div>
 
@@ -492,12 +557,630 @@
         </div>
 
 
+        <div class="page" id="resources" style="display:none;">
+
+          <h1>Resources</h1>
+
+          <p>The table below lists all resources that an OLD exposes. The Path
+          column indicates the name of the resource in URL paths when making
+          RESTful HTTP requests (cf. <a href="javascript:void()" class="mi"
+          data-page="api">API</a>). The <i>Extra actions</i> column indicates
+          that the requests can be made against this resource beyond the
+          standard retrieve, create, update, delete and search requests.</p>
+
+          <table class='api-table'>
+            <thead>
+              <tr>
+                <th>Resource</th>
+                <th>Path</th>
+                <th>Searchable</th>
+                <th>Read-only</th>
+                <th>Extra actions</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>App settings</td>
+                <td>applicationsettings</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Collections</td>
+                <td>collections</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Collection bks</td>
+                <td>collectionbackups</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Corpora</td>
+                <td>corpora</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Corpus bks</td>
+                <td>corpusbackups</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Elicitation methods</td>
+                <td>elicitationmethods</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Files</td>
+                <td>files</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Forms</td>
+                <td>forms</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Form bks</td>
+                <td>formbackups</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Form searches</td>
+                <td>formsearches</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Languages</td>
+                <td>languages</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Morpheme LMs</td>
+                <td>morphemelanguagemodels</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Morpheme LM bks</td>
+                <td>morphemelanguagemodelbackups</td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Morphological parsers</td>
+                <td>morphologicalparsers</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Morphological parser bks</td>
+                <td>morphologicalparserbackups</td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Morphologies</td>
+                <td>morphologies</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Morphology bks</td>
+                <td>morphologybackups</td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Orthographies</td>
+                <td>orthographies</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Pages</td>
+                <td>pages</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Phonologies</td>
+                <td>phonologies</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <tr>
+                <td>Phonology bks</td>
+                <td>phonologybackups</td>
+                <td></td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Remembered forms</td>
+                <td>rememberedforms</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Sources</td>
+                <td>sources</td>
+                <td><i class="fa fa-check"></i></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Speakers</td>
+                <td>speakers</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Syntactic categories</td>
+                <td>syntacticcategories</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Tags</td>
+                <td>tags</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Users</td>
+                <td>users</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+          <h2>Form resources</h2>
+
+          <p>The form is the most commonly accessed OLD resource. It represents
+          a linguistic form, i.e., morpheme, word or sentence. When issuing a
+          request to create or update a form, the request body must contain a
+          JSON object that has certain attributes whose values must match
+          certain criteria. When the OLD returns a form it is also in JSON
+          format; however, it may contain additional attributes that the OLD
+          generates, such as enterer. The table below summarizes these
+          attributes, the types of, and restrictions on, their values, and
+          whether they are read-only, i.e., specified only by the OLD.</p>
+
+          <table class='api-table'>
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Type</th>
+                <th>Requirements/Description</th>
+                <th>Read-only</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>transcription</td>
+                <td>string</td>
+                <td>not empty, max 255 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>phonetic_transcription</td>
+                <td>string</td>
+                <td>max 255 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>narrow_phonetic_transcription</td>
+                <td>string</td>
+                <td>max 255 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>morpheme_break</td>
+                <td>string</td>
+                <td>max 255 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>grammaticality</td>
+                <td>string</td>
+                <td>one of grammaticalities listed in app settings</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>morpheme_gloss</td>
+                <td>string</td>
+                <td>max 255 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>translations</td>
+                <td>array</td>
+                <td>array containing at least one object with transcription and
+                  grammaticality values</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>comments</td>
+                <td>string</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>speaker_comments</td>
+                <td>string</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>syntax</td>
+                <td>string</td>
+                <td>max 1023 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>semantics</td>
+                <td>string</td>
+                <td>max 1023 characters</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td>string</td>
+                <td>either “tested” or “requires testing”</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>elicitation_method</td>
+                <td>integer</td>
+                <td>id of existing OLD elicitation method resource</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>syntactic_category</td>
+                <td>integer</td>
+                <td>id of existing OLD syntactic category resource</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>speaker</td>
+                <td>integer</td>
+                <td>id of existing OLD speaker resource</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>elicitor</td>
+                <td>integer</td>
+                <td>id of existing OLD user resource</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>verifier</td>
+                <td>integer</td>
+                <td>id of existing OLD user resource</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>source</td>
+                <td>integer</td>
+                <td>id of existing OLD source resource</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>tags</td>
+                <td>array</td>
+                <td>array of OLD tag resource ids</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>files</td>
+                <td>array</td>
+                <td>array of OLD file resource ids</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>date_elicited</td>
+                <td>string</td>
+                <td>date in MM/DD/YYYY format</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>integer</td>
+                <td>RDBMS-generated identifier</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>UUID</td>
+                <td>string</td>
+                <td>OLD-generated identifier</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>datetime_entered</td>
+                <td>string</td>
+                <td>date/time in ISO 8601 format</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>datetime_modified</td>
+                <td>string</td>
+                <td>date/time in ISO 8601 format</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>syntactic_category_string</td>
+                <td>string</td>
+                <td>sequence of syntactic categories corresponding to
+                  user-specified morphological analysis</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>morpheme_break_ids</td>
+                <td>array</td>
+                <td>cache of matches between morphemes and existing lexical forms</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>morpheme_gloss_ids</td>
+                <td>array</td>
+                <td>cache of matches between glosses and existing lexical forms</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>break_gloss_category</td>
+                <td>string</td>
+                <td>morpheme shape, gloss and category information zipped together</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>enterer</td>
+                <td>integer</td>
+                <td>id of OLD user who entered the form</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr>
+                <td>modifier</td>
+                <td>integer</td>
+                <td>id of OLD user who last modified the form</td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+
+
         <div class="page" id="api" style="display:none;">
 
+          <h1>REST API</h1>
+
           <p>The OLD exposes a RESTful API with data communicated in JSON
-          format. A simple overview will be provided here soon. For now, see
-          the <a href="http://online-linguistic-database.readthedocs.org/en/latest/interface.html#restful-api"
-          >documentation</a>.</p>
+          format.</p>
+
+          <h2>Standard API</h2>
+
+          <p>The table below summarizes the standard OLD API. The OLD provides
+          access to many “resources”, such as (linguistic) forms, collections
+          (i.e., texts), tags, users, speakers, etc. The table below shows how
+          to retrieve, delete, create and update OLD resources. Replace “forms”
+          with the name of another resource, e.g., “tags”, in order to
+          manipulate that resource.</p>
+
+          <table class='api-table'>
+            <thead>
+              <tr>
+                <th>HTTP method</th>
+                <th>Path</th>
+                <th>Effect</th>
+                <th>Parameters</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>GET</td>
+                <td>/forms</td>
+                <td>Retrieve all forms</td>
+                <td>Optional pagination and ordering parameters</td>
+              </tr>
+
+              <tr>
+                <td>GET</td>
+                <td>/forms/id</td>
+                <td>Retrieve form with id=id</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>GET</td>
+                <td>/forms/new</td>
+                <td>Get data needed to create a new form</td>
+                <td>Optional parameters controlling what is retrieved</td>
+              </tr>
+
+              <tr>
+                <td>GET</td>
+                <td>/forms/id/edit</td>
+                <td>Get data needed to edit form with id=id</td>
+                <td>Optional parameters controlling what is retrieved</td>
+              </tr>
+
+              <tr>
+                <td>DELETE</td>
+                <td>/forms/id</td>
+                <td>Delete for with id=id</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>POST</td>
+                <td>/forms</td>
+                <td>Create a new form</td>
+                <td>JSON object</td>
+              </tr>
+
+              <tr>
+                <td>PUT</td>
+                <td>/forms/id</td>
+                <td>Update form with id=id</td>
+                <td>JSON object</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
+          <h2>Search API</h2>
+
+          <p>Certain OLD resources can be searched (cf. the “searchable”
+          column in the table on the <a class="mi" href="javascript:void(0)"
+            data-page="resources">Resources</a> page). As the table below
+          indicates, there are two ways to request a search, one using the
+          non-standard HTTP method <span class="snippet">SEARCH</span> and the
+          other using the <span class="snippet">POST</span> method.</p>
+
+          <table class='api-table'>
+            <thead>
+              <tr>
+                <th>HTTP method</th>
+                <th style="width: 92px;">Path</th>
+                <th style="width: 200px;">Effect</th>
+                <th style="width: 246.5px;">Parameters</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>SEARCH</td>
+                <td>/forms</td>
+                <td>Search over forms</td>
+                <td>JSON object</td>
+              </tr>
+
+              <tr>
+                <td>POST</td>
+                <td>/forms/search</td>
+                <td>Search over forms</td>
+                <td>JSON object</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
+          <h2>Pagination</h2>
+
+          <p>When retrieving or searching over an OLD resource, pagination and
+          ordering parameters may be supplied. The pagination parameters are
+          <span class="snippet">page</span> and <span
+            class="snippet">items_per_page</span>. In a GET request, these are
+          supplied in the URL's query string. Thus, a request to <span
+            class="snippet"
+            >https://my-old-url.org/forms?page=99&amp;items_per_page=10</span>
+          would return forms 990 to 1000.</p>
+
+          <p>In a search request (using either the POST or SEARCH method), the
+          pagination parameters are supplied in the JSON body of the request.
+          The JSON body should be an object containing both <span
+          class="snippet">query</span> and <span
+          class="snippet">paginator</span> attributes, with the value of the
+          paginator attribute being another object with its own <span
+          class="snippet">page</span> and <span
+          class="snippet">items_per_page</span> attributes. For example:</p>
+
+          <!-- code-block: pagination-object -->
+
+          <h2>Ordering</h2>
+
+          <p>When retrieving or searching over an OLD resource, you can control
+          the ordering of the resources returned. The ordering parameters are
+          <span class="snippet">order_by_model</span> (i.e., resource), <span
+            class="snippet">order_by_attribute</span> and <span
+            class="snippet">order_by_direction</span>. In a GET request,
+          these are once again supplied in the URL's query string. Thus, a
+          request to <span class="snippet"
+          >https://my-old-url.org/forms?order_by_attribute=transcription&amp;order_by_model=form&amp;order_by_direction=desc</span>
+          would return all of the forms in the database sorted by their
+          transcriptions in descending order.</p>
+
+          <p>In a search request, the pagination parameters are supplied in the
+          JSON body of the request: the <span class="snippet">query</span>
+          attribute is an object with an <span class="snippet">order_by</span>
+          attribute whose value is an array containing <span
+            class="snippet">model</span>, <span
+            class="snippet">attribute</span> and <span
+            class="snippet">direction</span> strings.</p>
+
+          <!-- code-block: order_by-object -->
 
         </div>
 

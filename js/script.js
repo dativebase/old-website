@@ -69,6 +69,8 @@ $(function(){
     });
 
     window.addEventListener('popstate', function(e) {
+        desideitems();
+        sideitem(e.state);
         showPage(e.state);
     });
 
@@ -78,9 +80,12 @@ $(function(){
     var path = window.location.pathname;
     // pages = ['/getstarted', '/apps', '/faq', '/doc', '/api'];
     pages = ['/getstarted', '/faq', '/api', '/addingupdating', '/searching',
-        '/apps', '/install']
+        '/apps', '/install', '/resources']
     if (pages.indexOf(path) !== -1) {
-        showPage(path.replace('/', ''));
+        desideitems();
+        page = path.replace('/', '');
+        sideitem(page);
+        showPage(page);
     }
 
 });
