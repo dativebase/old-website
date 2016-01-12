@@ -18,6 +18,11 @@ body
   background-color: #d4d4d4;
 }
 
+a
+{
+  text-decoration: none;
+}
+
 #content
 {
   min-height: 1000px;
