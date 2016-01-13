@@ -17,7 +17,6 @@ $(function(){
 
     var sideitem = function(page) {
         selector = "[data-page='" + page + "']";
-        console.log(selector);
         $('.sideitem').filter(selector).addClass('on');
     }
 
