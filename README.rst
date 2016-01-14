@@ -4,11 +4,11 @@
 
 This is the web site for the OLD. It describes the OLD, including:
 
-- description
-- links to known OLD apps
-- links to documentation
-- links to the source code
-- description of the API
+- a description,
+- links to known OLD apps/instances,
+- documentation and Python Requests examples,
+- description of the API, and
+- links to the source code.
 
-.. image:: jrwdunham/old-website/blob/master/images/OLD-website-screenshot.png
+.. image:: https://github.com/jrwdunham/old-website/blob/master/images/OLD-website-screenshot.png
 
