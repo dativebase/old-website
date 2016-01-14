@@ -10,5 +10,5 @@ This is the web site for the OLD. It describes the OLD, including:
 - links to the source code
 - description of the API
 
-.. image:: images/OLD-website-sreenshot.png
+.. image:: jrwdunham/old-website/blob/master/images/OLD-website-screenshot.png
 
