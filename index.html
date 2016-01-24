@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/vim.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="icon" href="favicon.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- <script src="js/jquery-1.8.0.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="js/jquery-1.8.0.min.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body>
@@ -177,7 +177,9 @@
           <h2>Log in</h2>
 
           <p>To log in to an OLD and create a session that remembers that
-          you've logged in, do the following.</p>
+          you've logged in, do the following. Note: all other examples on this
+          web site assume you have logged in using a session object <span
+          class="snippet">s</span> as shown below.</p>
 
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
@@ -280,7 +282,7 @@
 
           <h1>Language-specific OLD Applications</h1>
 
-          <p>The following ten languages are being collaboratively documented
+          <p>The following eleven languages are being collaboratively documented
             and analyzed using the <a
             href="https://github.com/jrwdunham/old">OLD</a>. These applications
             are accessible via any Dative user interface, including the one
@@ -316,47 +318,50 @@
             <li><a href="https://projects.linguistics.ubc.ca/nepold/"
                 target="_blank">Nepali (nep) https://projects.linguistics.ubc.ca/nepold/</a></li>
 
+            <li><a href="https://projects.linguistics.ubc.ca/okaold/"
+                target="_blank">Okanagan (oka) https://projects.linguistics.ubc.ca/okaold/</a></li>
+
             <li><a href="https://projects.linguistics.ubc.ca/glaold/"
                 target="_blank">Scottish Gaelic (gla) https://projects.linguistics.ubc.ca/glaold/</a></li>
 
           </ol>
 
-          <p>The following eight languages are being collaboratively documented
+          <p>The following seven languages are being collaboratively documented
             and analyzed using OLD web applications running on <a
             href="https://github.com/jrwdunham/old-webapp">version 0.2</a> of
           the software.<sup>*</sup></p>
 
           <ol>
 
-            <li><a href="http://oka.old.linguistics.ubc.ca/"
-                target="_blank">Okanagan (oka)</a></li>
-
-            <li><a href="http://crk.old.linguistics.ubc.ca/"
-                target="_blank">Plains Cree (crk)</a></li>
-
-            <li><a href="http://kwk.old.linguistics.ubc.ca/"
-                target="_blank">Kwak'wala (kwk)</a></li>
-
-            <li><a href="http://ntk.old.linguistics.ubc.ca/"
-                target="_blank">Nata (ntk)</a></li>
+            <li><a href="http://crd.old.linguistics.ubc.ca/"
+                target="_blank">Coeur d'Alene (crd)</a></li>
 
             <li><a href="http://git.old.linguistics.ubc.ca/"
                 target="_blank">Gitksan (git)</a></li>
 
-            <li><a href="http://crd.old.linguistics.ubc.ca/"
-                target="_blank">Coeur d'Alene (crd)</a></li>
-
-            <li><a href="http://sna.old.linguistics.ubc.ca/"
-                target="_blank">Shona (sna)</a></li>
+            <li><a href="http://kwk.old.linguistics.ubc.ca/"
+                target="_blank">Kwak'wala (kwk)</a></li>
 
             <li><a href="http://byv.old.linguistics.ubc.ca/"
                 target="_blank">Medumba</a></li>
+
+            <li><a href="http://ntk.old.linguistics.ubc.ca/"
+                target="_blank">Nata (ntk)</a></li>
+
+            <li><a href="http://crk.old.linguistics.ubc.ca/"
+                target="_blank">Plains Cree (crk)</a></li>
+
+            <li><a href="http://sna.old.linguistics.ubc.ca/"
+                target="_blank">Shona (sna)</a></li>
 
           </ol>
 
           <p><sup>*</sup>The OLD version 0.2 is a different piece of software
           from the OLD (version 1). The above nine applications will be
           migrated to a Dative/OLD system using OLD v. 1 in the near future.</p>
+
+          <iframe width="700" height="600" frameborder="0" seamless="seamless"
+              scrolling="no" src="data-in-olds.html"></iframe>
 
         </div>
 

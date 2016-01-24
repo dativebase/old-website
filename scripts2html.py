@@ -21,6 +21,7 @@ from pygments.lexers.sql import MySqlLexer
 from pygments.lexers.configs import IniLexer
 from pygments.lexers.data import JsonLexer
 from pygments.formatters import HtmlFormatter
+import os
 
 pyformatter = HtmlFormatter(cssclass="codehilite")
 shformatter = HtmlFormatter(cssclass="shcodehilite")
