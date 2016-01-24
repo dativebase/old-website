@@ -87,5 +87,26 @@ $(function(){
         showPage(page);
     }
 
+    var plotlyRequested = false;
+    $('iframe#data-in-olds').on('load', function() {
+        $('img.data-in-olds-screenshot').hide();
+        $('div.plotly-iframe-loading-container').hide();
+        $(this).show();
+        $('i.plotly-iframe-loading').hide();
+        console.log('load the iframe')
+    });
+
+    $('div.plotly-iframe-loading-container').mouseover(function(e) {
+        if (!plotlyRequested) {
+            plotlyRequested = true;
+            $(this).css({
+                'background-color': 'grey',
+                'opacity': 0.5
+            });
+            $('i.plotly-iframe-loading').show();
+            $("iframe#data-in-olds").first().attr("src", "data-in-olds.html");
+        }
+    });
+
 });
 

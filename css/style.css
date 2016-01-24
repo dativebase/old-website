@@ -282,3 +282,34 @@ table.api-table tbody tr:nth-child(odd)
   background-color: lightgray;
 }
 
+img.data-in-olds-screenshot
+{
+  width: 650px;
+}
+
+iframe#data-in-olds
+{
+  display: none;
+}
+
+div.plotly-iframe-loading-container-container
+{
+  position: relative;
+}
+
+div.plotly-iframe-loading-container
+{
+  position: absolute;
+  width: 700px;
+  height: 598px;
+}
+
+i.plotly-iframe-loading
+{
+  position: relative;
+  display: none;
+  top: 40%;
+  left: 45%;
+}
+
+
