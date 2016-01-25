@@ -12,7 +12,12 @@
 {
     "query": {
         "filter": [],
-        "order_by": ["form", "transcription", "desc"]},
+        "order_by": ["Form", "transcription", "desc"]},
     "paginator": {}
 }
 # end-block: order_by-object
+
+# start-block: simple-search-filter
+["Form", "transcription", "regex", "^a"]
+# end-block: simple-search-filter
+

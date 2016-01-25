@@ -146,8 +146,32 @@
 
           <h1>Adding &amp; Updating Resources</h1>
 
-          <p>This page will contain examples showing how to create and update
-          OLD resources.</p>
+          <p>Adding a form to an OLD involves sending a <span
+          class="snippet">POST</span> request to the path <span
+          class="snippet">/forms</span> at the OLD's URL. The request body must
+          contain a JSON object that has the same attributes as the following
+          Python dict has keys.</p>
+
+          <!-- code-block: form-template -->
+
+          <p>The following snippet illustrates the creation of a form.</p>
+
+          <!-- code-block: adding-form -->
+
+          <h2>Updating</h2>
+
+          <p>To update a form, issue a <span class="snippet">PUT</span> request
+          to <span class="snippet">/forms/&lt;id&gt;</span>, where <span
+          class="snippet">&lt;id&gt;</span> is the id of the form to be
+          updated.</p>
+
+          <p>The object/dict received from a successful create request can be
+          modified and sent back in the update request. However, its relational
+          attributes (e.g., elicitor, speaker, etc.) must be converted to id
+          values and its date elicited value must be converted to mm/dd/yyyy
+          format.</p>
+
+          <!-- code-block: updating-form -->
 
         </div>
 
@@ -156,8 +180,68 @@
 
           <h1>Searching Over Resources</h1>
 
-          <p>This page will contain examples showing how to search over
-          searchable OLD resources.</p>
+          <p>The OLD accepts search expressions as JSON arrays. The following
+          array represents a search that will return all forms whose
+          transcription value begins with an “a”.</p>
+
+          <!-- code-block: simple-search-filter -->
+
+          <p>Here is how you would request the forms that match the above
+          search, by making a <span class="snippet">POST</span> request to
+          <span class="snippet">forms/search</span>:</p>
+
+          <!-- code-block: search-1 -->
+
+          <h2>Pagination &amp; Ordering</h2>
+
+          <p>Searches requests can also contain pagination and ordering
+          parameters. The following search request performs the same search as
+          above, except that now we are asking that the results be sorted by
+          transcription in descending order and we want the first three forms
+          only.</p>
+
+          <!-- code-block: search-2 -->
+
+          <h2>Conjunction</h2>
+
+          <p>You can conjoin two or more search expressions using the syntax
+          illustrated below. Here we are adding the requirement that all
+          returned forms must be grammatical, i.e., have an empty string for
+          their grammaticality value.</p>
+
+          <!-- code-block: search-3 -->
+
+          <h2>Disjunction</h2>
+
+          <p>To create a disjunction of search expressions, use <span
+          class="snippet">"or"</span> as the first element of the array, as
+          shown below. Here we are looking for all forms that contain "cat" in
+          their morpheme gloss or comments fields or in any one of their
+          translation values.</p>
+
+          <!-- code-block: search-4 -->
+
+
+          <h2>Negation</h2>
+
+          <p>A search expression can be negated by making it the second element
+          in an array whose first element is <span
+          class="snippet">"not"</span>. In the search below, the first conjunct
+          is negated and is used to ensure that no forms with the ungrammatical
+          value “*” are included in the search results.</p>
+
+          <p>The second conjunct shows the use of “!=”, meaning “not
+          equals”, to filter out forms whose status value is set to
+          “requires testing”.</p>
+
+          <p>The next four conjuncts ensure that all forms that match this
+          search were entered by someone with the last name “Dunham”,
+          contain a progressive aspectual construction in their translation,
+          contain a specific morpheme “á-”, and were entered some time
+          before January 1, 2011.</p>
+
+          <!-- code-block: search-5 -->
+
 
         </div>
 
@@ -555,6 +639,15 @@
                   should work.</p>
               </div>
 
+            </li>
+
+            <li>
+              <div class="faq-q">Can I search across multiple OLDs at the same time?</div>
+              <div class="faq-a">
+                <p>Yes. See the <a
+                  href="https://github.com/jrwdunham/cross-old-searches"
+                  target="blank_">Cross-OLD Searches</a> script.</p>
+              </div>
             </li>
 
             <!-- <li>
