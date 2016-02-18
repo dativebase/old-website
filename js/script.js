@@ -87,24 +87,43 @@ $(function(){
         showPage(page);
     }
 
-    var plotlyRequested = false;
+    var dataInOLDsRequested = false;
     $('iframe#data-in-olds').on('load', function() {
         $('img.data-in-olds-screenshot').hide();
-        $('div.plotly-iframe-loading-container').hide();
+        $('div.data-in-olds.plotly-iframe-loading-container').hide();
         $(this).show();
-        $('i.plotly-iframe-loading').hide();
-        console.log('load the iframe')
+        $('i.data-in-olds.plotly-iframe-loading').hide();
     });
 
-    $('div.plotly-iframe-loading-container').mouseover(function(e) {
-        if (!plotlyRequested) {
-            plotlyRequested = true;
+    $('div.plotly-iframe-loading-container.data-in-olds').mouseover(function(e) {
+        if (!dataInOLDsRequested) {
+            dataInOLDsRequested = true;
             $(this).css({
                 'background-color': 'grey',
                 'opacity': 0.5
             });
-            $('i.plotly-iframe-loading').show();
+            $('i.data-in-olds.plotly-iframe-loading').show();
             $("iframe#data-in-olds").first().attr("src", "data-in-olds.html");
+        }
+    });
+
+    var activityInOLDsRequested = false;
+    $('iframe#activity-in-olds').on('load', function() {
+        $('img.activity-in-olds-screenshot').hide();
+        $('div.activity-in-olds.plotly-iframe-loading-container').hide();
+        $(this).show();
+        $('i.activity-in-olds.plotly-iframe-loading').hide();
+    });
+
+    $('div.plotly-iframe-loading-container.activity-in-olds').mouseover(function(e) {
+        if (!activityInOLDsRequested) {
+            activityInOLDsRequested = true;
+            $(this).css({
+                'background-color': 'grey',
+                'opacity': 0.5
+            });
+            $('i.activity-in-olds.plotly-iframe-loading').show();
+            $("iframe#activity-in-olds").first().attr("src", "activity-in-olds.html?autosize=True");
         }
     });
 

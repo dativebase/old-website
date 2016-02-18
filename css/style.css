@@ -282,12 +282,14 @@ table.api-table tbody tr:nth-child(odd)
   background-color: lightgray;
 }
 
-img.data-in-olds-screenshot
+img.data-in-olds-screenshot,
+img.activity-in-olds-screenshot
 {
   width: 650px;
 }
 
-iframe#data-in-olds
+iframe#data-in-olds,
+iframe#activity-in-olds
 {
   display: none;
 }
